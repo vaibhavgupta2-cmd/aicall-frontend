@@ -1,0 +1,1248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:bg-darkBgGray bg-white text-black dark:text-white;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 28 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 28 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 28 100% 50%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 346.8 77.2% 49.8%;
+  }
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+      background: linear-gradient(
+        to bottom right,
+        hsl(var(--background)),
+        hsl(var(--muted))
+      );
+      min-height: 100vh;
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  .wrapper {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    --font-color-dark: #323232;
+    --font-color-light: #fff;
+    --bg-color: #fff;
+    --main-color: #323232;
+    position: relative;
+    padding-right: 10px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 34px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 4px 4px var(--main-color);
+  }
+
+  .option {
+    width: 80.5px;
+    height: 28px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+  }
+
+  .input-radio {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .btn {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .span {
+    color: var(--font-color-dark);
+  }
+
+  .input-radio:checked + .btn {
+    background-color: var(--main-color);
+  }
+
+  .input-radio:checked + .btn .span {
+    color: var(--font-color-light);
+  }
+
+  .input {
+    max-width: 190px;
+    height: 40px;
+    padding: 10px;
+
+    border: 0.5px solid;
+    border-radius: 5px;
+  }
+
+  .input:focus {
+    color: rgb(0, 255, 255);
+    outline-color: rgb(255, 119, 0);
+    box-shadow: -3px -3px 15px rgb(255, 119, 0);
+    transition: 0.1s;
+    transition-property: box-shadow;
+  }
+
+  .container {
+    padding: 20px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container .heading {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: bolder;
+  }
+
+  .form {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form .btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .form .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: solid 1px rgb(255, 119, 0);
+    border-bottom: solid 1px #90c2ff;
+    background: linear-gradient(135deg, rgb(255, 119, 0), rgb(255, 119, 0));
+    color: #fff;
+    font-weight: bolder;
+    transition: all 0.2s ease;
+    box-shadow: 0px 2px 3px #000d3848, inset 0px 4px 5px rgb(255, 119, 0),
+      inset 0px -4px 5px rgb(255, 119, 0);
+  }
+
+  .form .btn:active {
+    box-shadow: inset 0px 4px 5px rgb(255, 119, 0),
+      inset 0px -4px 5px rgb(255, 119, 0);
+    transform: scale(0.995);
+  }
+
+  .input-field {
+    position: relative;
+  }
+
+  .input-field label {
+    position: absolute;
+    color: #8d8d8d;
+    pointer-events: none;
+    left: 15px;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
+  }
+
+  .input-field input {
+    @apply bg-white dark:bg-darkBgGray;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: solid 1px #8d8d8d;
+    width: 100%;
+  }
+
+  .input-field input:focus,
+  .input-field input:valid {
+    outline: none;
+    border: solid 1px rgb(255, 119, 0);
+  }
+  .input-field input:focus ~ label,
+  .input-field input:valid ~ label {
+    transform: translateY(-51%) translateX(-10px) scale(0.8);
+    padding: 0px 5px;
+    color: rgb(255, 119, 0);
+    font-weight: bold;
+    border: none;
+    border-radius: 100px;
+  }
+
+  .form .passicon {
+    cursor: pointer;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+  }
+
+  .form .close {
+    display: none;
+  }
+
+  .card {
+    background: linear-gradient(
+      to right,
+      rgb(248, 244, 252),
+      rgb(242, 252, 254)
+    );
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 5px 10px 50px -10px #ffffff60, inset 0 0 50px rgb(250, 252, 255);
+  }
+
+  .slow-spin-pulse {
+    animation: spin 8s linear infinite, pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .breathing {
+    animation: spin 8s linear infinite, breath 5s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes breath {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .glassy-background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 153, 77, 0.6) 0%,
+      /* Light orange tint */ rgba(255, 136, 51, 0.4) 50%,
+      /* Slightly darker orange */ rgba(255, 119, 40, 0.7) 100%
+        /* Base orange */
+    );
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: inset 0 0 15px rgba(255, 153, 77, 0.5),
+      0 4px 8px rgba(255, 136, 51, 0.3), 0 0 10px rgba(255, 119, 40, 0.6),
+      /* Orange glow */ 0 0 20px rgba(255, 119, 40, 0.4); /* Extended orange glow */
+
+    border-radius: 15px;
+    border: 1px solid rgba(255, 136, 51, 0.3);
+  }
+
+  .glassy-background-dark {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 119, 40, 0.15) 0%,
+      /* Base orange with transparency */ rgba(204, 102, 34, 0.1) 50%,
+      /* Muted orange */ rgba(153, 77, 26, 0.4) 100% /* Darker shade */
+    );
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: inset 0 0 20px rgba(102, 51, 17, 0.5),
+      0 4px 8px rgba(153, 51, 17, 0.3), 0 0 15px rgba(255, 102, 34, 0.7),
+      /* Outer neon orange glow */ 0 0 30px rgba(255, 102, 34, 0.5); /* Extended neon glow */
+
+    border-radius: 15px;
+    border: 1px solid rgba(255, 119, 40, 0.2);
+  }
+
+  #recording {
+    display: none;
+  }
+
+  #recording:checked ~ label .mic {
+    animation: opacity 1.5s linear infinite;
+  }
+
+  #recording:checked ~ label .inner-circle {
+    box-shadow: 0 0 15px 10px #f57728, inset 0 0 30px 0px #ffffffdb;
+  }
+
+  #recording:checked ~ label .sound-line {
+    background-color: #f57728;
+  }
+
+  @keyframes opacity {
+    0%,
+    100% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  .outer-circle {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+    box-shadow: 25px 20px 100px -20px #cc6622, inset 0px 0px 30px -25px #7a3e11,
+      inset -10px -10px 20px -15px #ffccaa;
+    border-radius: 50%;
+    background-color: #ffccaa;
+    background: linear-gradient(
+        336deg,
+        rgba(255, 153, 77, 0.27),
+        rgba(153, 51, 17, 0) 70.71%
+      ),
+      linear-gradient(
+        217deg,
+        rgba(255, 119, 40, 0.27),
+        rgba(119, 30, 10, 0) 70.71%
+      ),
+      linear-gradient(
+        127deg,
+        rgba(255, 136, 51, 0.27),
+        rgba(102, 34, 17, 0) 70.71%
+      );
+    transition: transform 0.6s;
+    cursor: pointer;
+  }
+
+  .outer-circle:hover {
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  .outer-circle:active {
+    transform: translateX(-50%) scale(0.9);
+  }
+
+  .inner-circle {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgb(255, 153, 77);
+    background: linear-gradient(
+      45deg,
+      rgba(255, 153, 77, 1) 0%,
+      rgba(255, 136, 51, 1) 49%,
+      rgba(255, 119, 40, 1) 93%
+    );
+    box-shadow: 0 0 15px 10px #ffddaa, inset 0 0 30px 0px #ffffffdb;
+    transition: box-shadow 0.6s;
+  }
+
+  .mic {
+    opacity: 0.9;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scaleY(1.25) translateY(2px);
+    transition: opacity 0.6s;
+  }
+
+  .sound-lines {
+    animation: rotate 30s infinite linear;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes rotate {
+    0% {
+      rotate: 0deg;
+    }
+    50% {
+      rotate: 180deg;
+    }
+    100% {
+      rotate: 359deg;
+    }
+  }
+
+  .sound-line {
+    transform-origin: top center;
+    width: 2px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+    transition: background-color 0.6s;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: lineMovement 2s linear infinite;
+  }
+
+  @keyframes lineMovement {
+    0%,
+    100% {
+      height: var(--height);
+    }
+    50% {
+      height: var(--height2);
+    }
+  }
+
+  #sound-line0 {
+    rotate: 0deg;
+    --height: 48px;
+    --height2: 61px;
+    animation-delay: 0.5s;
+  }
+
+  #sound-line1 {
+    rotate: 3.6deg;
+    --height: 55px;
+    --height2: 72px;
+    animation-delay: 1.2s;
+  }
+
+  #sound-line2 {
+    rotate: 7.2deg;
+    --height: 65px;
+    --height2: 50px;
+    animation-delay: 0.8s;
+  }
+
+  #sound-line3 {
+    rotate: 10.8deg;
+    --height: 52px;
+    --height2: 74px;
+    animation-delay: 1.5s;
+  }
+
+  #sound-line4 {
+    rotate: 14.4deg;
+    --height: 60px;
+    --height2: 47px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line5 {
+    rotate: 18deg;
+    --height: 73px;
+    --height2: 55px;
+    animation-delay: 1.1s;
+  }
+
+  #sound-line6 {
+    rotate: 21.6deg;
+    --height: 68px;
+    --height2: 62px;
+    animation-delay: 0.4s;
+  }
+
+  #sound-line7 {
+    rotate: 25.2deg;
+    --height: 57px;
+    --height2: 69px;
+    animation-delay: 1.7s;
+  }
+
+  #sound-line8 {
+    rotate: 28.8deg;
+    --height: 66px;
+    --height2: 49px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line9 {
+    rotate: 32.4deg;
+    --height: 45px;
+    --height2: 70px;
+    animation-delay: 1.9s;
+  }
+
+  #sound-line10 {
+    rotate: 36deg;
+    --height: 58px;
+    --height2: 54px;
+    animation-delay: 0.6s;
+  }
+
+  #sound-line11 {
+    rotate: 39.6deg;
+    --height: 61px;
+    --height2: 75px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line12 {
+    rotate: 43.2deg;
+    --height: 67px;
+    --height2: 48px;
+    animation-delay: 0.9s;
+  }
+
+  #sound-line13 {
+    rotate: 46.8deg;
+    --height: 53px;
+    --height2: 64px;
+    animation-delay: 1.8s;
+  }
+
+  #sound-line14 {
+    rotate: 50.4deg;
+    --height: 74px;
+    --height2: 50px;
+    animation-delay: 0.1s;
+  }
+
+  #sound-line15 {
+    rotate: 54deg;
+    --height: 49px;
+    --height2: 60px;
+    animation-delay: 1.6s;
+  }
+
+  #sound-line16 {
+    rotate: 57.6deg;
+    --height: 71px;
+    --height2: 58px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line17 {
+    rotate: 61.2deg;
+    --height: 64px;
+    --height2: 47px;
+    animation-delay: 1.4s;
+  }
+
+  #sound-line18 {
+    rotate: 64.8deg;
+    --height: 52px;
+    --height2: 69px;
+    animation-delay: 0.7s;
+  }
+
+  #sound-line19 {
+    rotate: 68.4deg;
+    --height: 66px;
+    --height2: 76px;
+    animation-delay: 1.2s;
+  }
+
+  #sound-line20 {
+    rotate: 72deg;
+    --height: 50px;
+    --height2: 60px;
+    animation-delay: 0.5s;
+  }
+
+  #sound-line21 {
+    rotate: 75.6deg;
+    --height: 48px;
+    --height2: 65px;
+    animation-delay: 1s;
+  }
+
+  #sound-line22 {
+    rotate: 79.2deg;
+    --height: 70px;
+    --height2: 46px;
+    animation-delay: 0.4s;
+  }
+
+  #sound-line23 {
+    rotate: 82.8deg;
+    --height: 55px;
+    --height2: 61px;
+    animation-delay: 1.5s;
+  }
+
+  #sound-line24 {
+    rotate: 86.4deg;
+    --height: 74px;
+    --height2: 52px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line25 {
+    rotate: 90deg;
+    --height: 69px;
+    --height2: 68px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line26 {
+    rotate: 93.6deg;
+    --height: 63px;
+    --height2: 75px;
+    animation-delay: 0.6s;
+  }
+
+  #sound-line27 {
+    rotate: 97.2deg;
+    --height: 47px;
+    --height2: 59px;
+    animation-delay: 1.1s;
+  }
+
+  #sound-line28 {
+    rotate: 100.8deg;
+    --height: 58px;
+    --height2: 74px;
+    animation-delay: 0.9s;
+  }
+
+  #sound-line29 {
+    rotate: 104.4deg;
+    --height: 76px;
+    --height2: 49px;
+    animation-delay: 1.8s;
+  }
+
+  #sound-line30 {
+    rotate: 108deg;
+    --height: 66px;
+    --height2: 53px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line31 {
+    rotate: 111.6deg;
+    --height: 52px;
+    --height2: 62px;
+    animation-delay: 1.7s;
+  }
+
+  #sound-line32 {
+    rotate: 115.2deg;
+    --height: 61px;
+    --height2: 75px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line33 {
+    rotate: 118.8deg;
+    --height: 75px;
+    --height2: 46px;
+    animation-delay: 1.9s;
+  }
+
+  #sound-line34 {
+    rotate: 122.4deg;
+    --height: 45px;
+    --height2: 68px;
+    animation-delay: 0.6s;
+  }
+
+  #sound-line35 {
+    rotate: 126deg;
+    --height: 64px;
+    --height2: 54px;
+    animation-delay: 1.4s;
+  }
+
+  #sound-line36 {
+    rotate: 129.6deg;
+    --height: 70px;
+    --height2: 51px;
+    animation-delay: 0.8s;
+  }
+
+  #sound-line37 {
+    rotate: 133.2deg;
+    --height: 55px;
+    --height2: 74px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line38 {
+    rotate: 136.8deg;
+    --height: 49px;
+    --height2: 65px;
+    animation-delay: 0.4s;
+  }
+
+  #sound-line39 {
+    rotate: 140.4deg;
+    --height: 63px;
+    --height2: 60px;
+    animation-delay: 1.1s;
+  }
+
+  #sound-line40 {
+    rotate: 144deg;
+    --height: 72px;
+    --height2: 48px;
+    animation-delay: 0.5s;
+  }
+
+  #sound-line41 {
+    rotate: 147.6deg;
+    --height: 76px;
+    --height2: 55px;
+    animation-delay: 1.9s;
+  }
+
+  #sound-line42 {
+    rotate: 151.2deg;
+    --height: 50px;
+    --height2: 67px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line43 {
+    rotate: 154.8deg;
+    --height: 54px;
+    --height2: 73px;
+    animation-delay: 1s;
+  }
+
+  #sound-line44 {
+    rotate: 158.4deg;
+    --height: 61px;
+    --height2: 56px;
+    animation-delay: 0.7s;
+  }
+
+  #sound-line45 {
+    rotate: 162deg;
+    --height: 49px;
+    --height2: 75px;
+    animation-delay: 1.5s;
+  }
+
+  #sound-line46 {
+    rotate: 165.6deg;
+    --height: 60px;
+    --height2: 45px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line47 {
+    rotate: 169.2deg;
+    --height: 72px;
+    --height2: 65px;
+    animation-delay: 1.8s;
+  }
+
+  #sound-line48 {
+    rotate: 172.8deg;
+    --height: 68px;
+    --height2: 50px;
+    animation-delay: 0.1s;
+  }
+
+  #sound-line49 {
+    rotate: 176.4deg;
+    --height: 53px;
+    --height2: 67px;
+    animation-delay: 1.6s;
+  }
+
+  #sound-line50 {
+    rotate: 180deg;
+    --height: 48px;
+    --height2: 75px;
+    animation-delay: 0.4s;
+  }
+
+  #sound-line51 {
+    rotate: 183.6deg;
+    --height: 58px;
+    --height2: 54px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line52 {
+    rotate: 187.2deg;
+    --height: 74px;
+    --height2: 61px;
+    animation-delay: 0.9s;
+  }
+
+  #sound-line53 {
+    rotate: 190.8deg;
+    --height: 75px;
+    --height2: 52px;
+    animation-delay: 1s;
+  }
+
+  #sound-line54 {
+    rotate: 194.4deg;
+    --height: 66px;
+    --height2: 46px;
+    animation-delay: 0.8s;
+  }
+
+  #sound-line55 {
+    rotate: 198deg;
+    --height: 49px;
+    --height2: 75px;
+    animation-delay: 1.5s;
+  }
+
+  #sound-line56 {
+    rotate: 201.6deg;
+    --height: 63px;
+    --height2: 60px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line57 {
+    rotate: 205.2deg;
+    --height: 52px;
+    --height2: 72px;
+    animation-delay: 1.4s;
+  }
+
+  #sound-line58 {
+    rotate: 208.8deg;
+    --height: 74px;
+    --height2: 49px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line59 {
+    rotate: 212.4deg;
+    --height: 70px;
+    --height2: 55px;
+    animation-delay: 1.1s;
+  }
+
+  #sound-line60 {
+    rotate: 216deg;
+    --height: 45px;
+    --height2: 62px;
+    animation-delay: 0.9s;
+  }
+
+  #sound-line61 {
+    rotate: 219.6deg;
+    --height: 67px;
+    --height2: 48px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line62 {
+    rotate: 223.2deg;
+    --height: 64px;
+    --height2: 75px;
+    animation-delay: 0.4s;
+  }
+
+  #sound-line63 {
+    rotate: 226.8deg;
+    --height: 55px;
+    --height2: 51px;
+    animation-delay: 1.8s;
+  }
+
+  #sound-line64 {
+    rotate: 230.4deg;
+    --height: 50px;
+    --height2: 70px;
+    animation-delay: 0.1s;
+  }
+
+  #sound-line65 {
+    rotate: 234deg;
+    --height: 73px;
+    --height2: 62px;
+    animation-delay: 1.2s;
+  }
+
+  #sound-line66 {
+    rotate: 237.6deg;
+    --height: 60px;
+    --height2: 49px;
+    animation-delay: 0.7s;
+  }
+
+  #sound-line67 {
+    rotate: 241.2deg;
+    --height: 45px;
+    --height2: 75px;
+    animation-delay: 1.5s;
+  }
+
+  #sound-line68 {
+    rotate: 244.8deg;
+    --height: 68px;
+    --height2: 56px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line69 {
+    rotate: 248.4deg;
+    --height: 52px;
+    --height2: 70px;
+    animation-delay: 1s;
+  }
+
+  #sound-line70 {
+    rotate: 252deg;
+    --height: 66px;
+    --height2: 45px;
+    animation-delay: 0.5s;
+  }
+
+  #sound-line71 {
+    rotate: 255.6deg;
+    --height: 49px;
+    --height2: 62px;
+    animation-delay: 1.4s;
+  }
+
+  #sound-line72 {
+    rotate: 259.2deg;
+    --height: 74px;
+    --height2: 52px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line73 {
+    rotate: 262.8deg;
+    --height: 66px;
+    --height2: 50px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line74 {
+    rotate: 266.4deg;
+    --height: 63px;
+    --height2: 45px;
+    animation-delay: 0.4s;
+  }
+
+  #sound-line75 {
+    rotate: 270deg;
+    --height: 72px;
+    --height2: 54px;
+    animation-delay: 1.8s;
+  }
+
+  #sound-line76 {
+    rotate: 273.6deg;
+    --height: 56px;
+    --height2: 70px;
+    animation-delay: 0.6s;
+  }
+
+  #sound-line77 {
+    rotate: 277.2deg;
+    --height: 50px;
+    --height2: 49px;
+    animation-delay: 1.2s;
+  }
+
+  #sound-line78 {
+    rotate: 280.8deg;
+    --height: 67px;
+    --height2: 55px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line79 {
+    rotate: 284.4deg;
+    --height: 73px;
+    --height2: 62px;
+    animation-delay: 1.5s;
+  }
+
+  #sound-line80 {
+    rotate: 288deg;
+    --height: 52px;
+    --height2: 70px;
+    animation-delay: 0.1s;
+  }
+
+  #sound-line81 {
+    rotate: 291.6deg;
+    --height: 66px;
+    --height2: 45px;
+    animation-delay: 1.9s;
+  }
+
+  #sound-line82 {
+    rotate: 295.2deg;
+    --height: 55px;
+    --height2: 74px;
+    animation-delay: 0.5s;
+  }
+
+  #sound-line83 {
+    rotate: 298.8deg;
+    --height: 70px;
+    --height2: 62px;
+    animation-delay: 1.4s;
+  }
+
+  #sound-line84 {
+    rotate: 302.4deg;
+    --height: 65px;
+    --height2: 49px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line85 {
+    rotate: 306deg;
+    --height: 50px;
+    --height2: 55px;
+    animation-delay: 1.1s;
+  }
+
+  #sound-line86 {
+    rotate: 309.6deg;
+    --height: 74px;
+    --height2: 68px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line87 {
+    rotate: 313.2deg;
+    --height: 68px;
+    --height2: 45px;
+    animation-delay: 1.6s;
+  }
+
+  #sound-line88 {
+    rotate: 316.8deg;
+    --height: 64px;
+    --height2: 72px;
+    animation-delay: 0.7s;
+  }
+
+  #sound-line89 {
+    rotate: 320.4deg;
+    --height: 53px;
+    --height2: 60px;
+    animation-delay: 1s;
+  }
+
+  #sound-line90 {
+    rotate: 324deg;
+    --height: 75px;
+    --height2: 49px;
+    animation-delay: 0.9s;
+  }
+
+  #sound-line91 {
+    rotate: 327.6deg;
+    --height: 55px;
+    --height2: 62px;
+    animation-delay: 1.2s;
+  }
+
+  #sound-line92 {
+    rotate: 331.2deg;
+    --height: 70px;
+    --height2: 60px;
+    animation-delay: 0.5s;
+  }
+
+  #sound-line93 {
+    rotate: 334.8deg;
+    --height: 47px;
+    --height2: 72px;
+    animation-delay: 1.4s;
+  }
+
+  #sound-line94 {
+    rotate: 338.4deg;
+    --height: 54px;
+    --height2: 50px;
+    animation-delay: 0.1s;
+  }
+
+  #sound-line95 {
+    rotate: 342deg;
+    --height: 63px;
+    --height2: 65px;
+    animation-delay: 1.6s;
+  }
+
+  #sound-line96 {
+    rotate: 345.6deg;
+    --height: 48px;
+    --height2: 75px;
+    animation-delay: 0.2s;
+  }
+
+  #sound-line97 {
+    rotate: 349.2deg;
+    --height: 66px;
+    --height2: 49px;
+    animation-delay: 1.3s;
+  }
+
+  #sound-line98 {
+    rotate: 352.8deg;
+    --height: 50px;
+    --height2: 72px;
+    animation-delay: 0.3s;
+  }
+
+  #sound-line99 {
+    rotate: 356.4deg;
+    --height: 74px;
+    --height2: 68px;
+    animation-delay: 1.8s;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .h-hero {
+    @apply h-[calc(100vh-5rem)];
+  }
+}
