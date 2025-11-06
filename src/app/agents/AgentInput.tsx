@@ -298,7 +298,7 @@ function AgentInput({
       });
       const client = new WavesClient(config);
       
-      const modelParam = modelVersion === "V1" ? "lightning" : "lightning-v2";
+      const modelParam = "lightning";
       const voices = await client.getWavesVoices(modelParam);
       console.log("Fetched SmallestAI voices:", voices);
       
